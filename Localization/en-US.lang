@@ -27,13 +27,16 @@ Other languages would only need to provide a translation for Common.PaperAirplan
 Also note that \n makes a newline character, useful for multiline tooltips.
 
 Common.PaperAirplane=Paper Airplane
+Common.Lo=Lo
+Common.Palmer=Palmer
+Common.Fenix=Fenix
 
-ItemName.LoPet={$Mods.ExampleMod.Common.PaperAirplane}
-ItemTooltip.LoPet=Summons a {$Mods.ExampleMod.Common.PaperAirplane} to follow aimlessly behind you\nSecond Line!
-ProjectileName.LoPet={$Mods.ExampleMod.Common.PaperAirplane}
-BuffName.LoPet={$Mods.ExampleMod.Common.PaperAirplane}
-BuffDescription.LoPet="Let this pet be an example to you!"
+ItemName.LoPetItem=Essence of Bird
+ItemTooltip.LoPetItem=Summons {$Mods.MigratePets.Common.Lo} to bumble around uselessly on his pogo stick!
+ProjectileName.LoPet={$Mods.MigratePets.Common.Lo}
+BuffName.LoPetBuff={$Mods.MigratePets.Common.Lo}
+BuffDescription.LoPetBuff="wat he doin"
 
-Common.LocalizedLabel=This Label is from the .lang files: {$Mods.ExampleMod.Common.PaperAirplane}
+Common.LocalizedLabel=This Label is from the .lang files: {$Mods.MigratePets.Common.Lo}
 Common.LocalizedTooltip=This tooltip is from the .lang files.
 Common.LocalizedHeader=Headers can help organize

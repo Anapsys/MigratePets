@@ -1,5 +1,5 @@
 displayName = Pet Lo
-author = Anapse
+author = Anapse Entertainment
 version = 0.1
 homepage = https://anapse.net/
 hideCode = false
