@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "c/o2jx6V/rU/ToXxzIlY9SpnWLEOHYwDN8r/Bsn+tKRYguwZ+GN/but1NJs9ftbVOHPpxLnORVczH71H3N/HhQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\strik\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\MigratePets\\MigratePets.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\strik\\.nuget\\packages\\tmodloader.codeassist\\0.1.2\\tmodloader.codeassist.0.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,9 @@
+displayName = Pet Lo
+author = Anapse
+version = 0.1
+homepage = https://anapse.net/
+hideCode = false
+hideResources = false
+includeSource = true
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
+includePDB = true
