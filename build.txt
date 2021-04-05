@@ -1,6 +1,6 @@
-displayName = Pet Lo
+displayName = Anapse's Pets
 author = Anapse Entertainment
-version = 0.1
+version = 1.0
 homepage = https://anapse.net/
 hideCode = false
 hideResources = false

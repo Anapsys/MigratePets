@@ -11,16 +11,24 @@ namespace MigratePets.Projectiles.Pets
     {
 		private const int range = 500;
 		private readonly int rangeHypoteneus = (int)System.Math.Sqrt(range * range + range * range);
+		protected const float gravity = 3.0f;
+		protected const float maxGravity = 10.0f;
+		public override void SetStaticDefaults()
+		{
+			Main.projFrames[projectile.type] = 6; //this MUST MATCH the hardcoded number of frames in whatever AI you're copying. >_>
+			Main.projPet[projectile.type] = true;
+		}
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.BabyDino);
-			aiType = 0;//ProjectileID.BabyDino; //26;
+			//projectile.tileCollide = true;
+			aiType = ProjectileID.BlackCat; //26;
 			projectile.timeLeft = 2;
 		}
-		public override bool PreAI()
+		public override bool PreAI() //amazingly, this whole thing must be overridden in each pet.
 		{
 			Player player = Main.player[projectile.owner];
-			player.zephyrfish = false; // Relic from aiType
+			player.blackCat = false; // Relic from aiType
 
 			#region Active check
 			// This is the "active check", makes sure the minion is alive while the player is alive, and despawns if not
@@ -30,6 +38,7 @@ namespace MigratePets.Projectiles.Pets
 			{
 				player.ClearBuff(ModContent.BuffType<Buffs.QuailPetBuff>());
 				modPlayer.quailPet = false;
+				projectile.active = false;
 			}
 			if (player.HasBuff(ModContent.BuffType<Buffs.QuailPetBuff>()))
 			{
@@ -38,37 +47,6 @@ namespace MigratePets.Projectiles.Pets
 			#endregion
 
 			return true;
-		}
-
-		public override void AI()
-		{
-			#region AI... which should be all that's in this function. wtf.
-			
-			#endregion
-		}
-
-        public override void PostAI()
-        {
-			#region Animation and visuals
-			// So it will lean slightly towards the direction it's moving
-			projectile.rotation = projectile.velocity.X * 0.08f;
-
-			// This is a simple "loop through all frames from top to bottom" animation
-			int frameSpeed = 8;
-			projectile.frameCounter++;
-			if (projectile.frameCounter >= frameSpeed)
-			{
-				projectile.frameCounter = 0;
-				projectile.frame++;
-				if (projectile.frame >= Main.projFrames[projectile.type])
-				{
-					projectile.frame = 0;
-				}
-			}
-
-			// Some visuals here
-			Lighting.AddLight(projectile.Center, Color.White.ToVector3() * 0.78f);
-			#endregion
 		}
 	}
 }

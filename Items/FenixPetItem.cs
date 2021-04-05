@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace MigratePets.Items
 {
-	public class LoPetItem : AbstractPetItem
+	public class FenixPetItem : AbstractPetItem
 	{
 		public override void SetDefaults()
 		{
@@ -20,10 +20,10 @@ namespace MigratePets.Items
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.SoulofFlight, 7);
-			recipe.AddIngredient(ItemID.SoulofLight, 7);
+			recipe.AddIngredient(ItemID.SoulofNight, 7);
 			recipe.AddIngredient(ItemID.Feather, 5);
-			recipe.AddIngredient(ItemID.GiantHarpyFeather, 1);
-			recipe.AddIngredient(ItemID.AngelWings, 1);
+			recipe.AddIngredient(ItemID.FireFeather, 1);
+			recipe.AddIngredient(ItemID.FlameWings, 1);
 			//recipe.AddTile(ModContent.TileType<ExampleWorkbench>());
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);

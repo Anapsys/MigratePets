@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace MigratePets.Projectiles.Pets
 {
-	public class LoPet : AbstractPet
+	public class LoPetLarge : AbstractPet
 	{
 		public override void SetStaticDefaults()
 		{

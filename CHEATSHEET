@@ -1,0 +1,14 @@
+//tile checking??????????
+if (Main.tile[num16, num17] != null 
+&& Main.tile[num16, num17].wall > 0) {
+
+if Main.player[this.owner].velocity.Y == 0f 
+&& (!Collision.SolidCollision(base.position, base.width, base.height))
+	this.ai[0] = 0f;
+	if (base.velocity.Y < -6f)
+	{
+		base.velocity.Y = -6f;
+	}
+
+//player ownership
+if (Main.myPlayer == this.owner)

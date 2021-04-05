@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace MigratePets.Buffs
 {
-	public class LoPetBuff : ModBuff
+	public class LoPetLargeBuff : ModBuff
 	{
 		public override void SetDefaults() 
 		{
@@ -18,10 +18,10 @@ namespace MigratePets.Buffs
 		{
 			player.buffTime[buffIndex] = 18000;
 			player.GetModPlayer<SimpleModPlayer>().LoPet = true;
-			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.LoPet>()] <= 0;
+			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.LoPetLarge>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{
-				Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.LoPet>(), 0, 0f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.LoPetLarge>(), 0, 0f, player.whoAmI, 0f, 0f);
 			}
 		}
 	}
