@@ -20,7 +20,7 @@ namespace MigratePets.Projectiles.Pets
 
 		public override void SetDefaults() {
 			projectile.CloneDefaults(ProjectileID.BabyDino);
-			aiType = 0;// ProjectileID.BabyDino;
+			aiType = ProjectileID.BabyDino;
 			projectile.timeLeft = 2;
 		}
 		public override bool PreAI()
@@ -32,12 +32,14 @@ namespace MigratePets.Projectiles.Pets
 		
 		public override void AI() {
 			Player player = Main.player[projectile.owner];
+			SimpleModPlayer modPlayer = player.GetModPlayer<SimpleModPlayer>();
 
 			#region Active check
 			// This is the "active check", makes sure the minion is alive while the player is alive, and despawns if not
 			if (player.dead || !player.active)
 			{
 				player.ClearBuff(ModContent.BuffType<Buffs.QuailPetBuff>());
+				modPlayer.quailPet = false;
 			}
 			if (player.HasBuff(ModContent.BuffType<Buffs.QuailPetBuff>()))
 			{

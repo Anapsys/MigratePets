@@ -30,12 +30,25 @@ Common.PaperAirplane=Paper Airplane
 Common.Lo=Lo
 Common.Palmer=Palmer
 Common.Fenix=Fenix
+Common.Quail=Quail
 
 ItemName.LoPetItem=Essence of Bird
 ItemTooltip.LoPetItem=Summons {$Mods.MigratePets.Common.Lo} to bumble around uselessly on his pogo stick!
 ProjectileName.LoPet={$Mods.MigratePets.Common.Lo}
 BuffName.LoPetBuff={$Mods.MigratePets.Common.Lo}
-BuffDescription.LoPetBuff="wat he doin"
+BuffDescription.LoPetBuff="quack"
+
+ItemName.QuailPetItem=Quail thing i guess
+ItemTooltip.QuailPetItem=Summons {$Mods.MigratePets.Common.Quail} to bob around.
+ProjectileName.QuailPet={$Mods.MigratePets.Common.Quail}
+BuffName.QuailPetBuff={$Mods.MigratePets.Common.Quail}
+BuffDescription.QuailPetBuff="wat hims doin"
+
+ItemName.FenixPetItem=Jade Necklae
+ItemTooltip.FenixPetItem=Summons {$Mods.MigratePets.Common.Fenix} with attitude.
+ProjectileName.FenixPet={$Mods.MigratePets.Common.Fenix}
+BuffName.FenixPetBuff={$Mods.MigratePets.Common.Fenix}
+BuffDescription.FenixPetBuff="sassy"
 
 Common.LocalizedLabel=This Label is from the .lang files: {$Mods.MigratePets.Common.Lo}
 Common.LocalizedTooltip=This tooltip is from the .lang files.

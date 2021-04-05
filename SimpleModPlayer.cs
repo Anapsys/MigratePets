@@ -21,6 +21,9 @@ namespace MigratePets
 	{
 		// Here we declare the frostBurnSummon variable which will represent whether this player has the effect or not.
 		public bool FrostBurnSummon;
+		public bool quailPet;
+		public bool LoPet;
+		public bool FenixPet;
 
 		// ResetEffects is used to reset effects back to their default value. Terraria resets all effects every frame back to defaults so we will follow this design. (You might think to set a variable when an item is equipped and unassign the value when the item in unequipped, but Terraria is not designed that way.)
 		public override void ResetEffects() {
