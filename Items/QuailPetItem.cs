@@ -16,7 +16,7 @@ namespace MigratePets.Items
 		public override void SetDefaults() {
 			item.CloneDefaults(ItemID.AmberMosquito);
 			item.damage = 0;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.shoot = ModContent.ProjectileType<Projectiles.Pets.QuailPet>();
 			item.buffType = ModContent.BuffType<Buffs.QuailPetBuff>();
 		}

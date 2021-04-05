@@ -7,35 +7,27 @@ using Terraria.ModLoader;
 
 namespace MigratePets.Projectiles.Pets
 {
-	public class QuailPet : ModProjectile
+	public class QuailPet : AbstractPet
 	{
-		private const int range = 500;
-		private readonly int rangeHypoteneus = (int)System.Math.Sqrt(range * range + range * range);
-
 		public override void SetStaticDefaults() {
-			//DisplayName.SetDefault("Paper Airplane"); // Automatic from .lang files
 			Main.projFrames[projectile.type] = 6;
 			Main.projPet[projectile.type] = true;
 		}
 
 		public override void SetDefaults() {
 			projectile.CloneDefaults(ProjectileID.BabyDino);
-			aiType = ProjectileID.BabyDino;
+			aiType = 0;//ProjectileID.BabyDino;
 			projectile.timeLeft = 2;
 		}
 		public override bool PreAI()
 		{
 			Player player = Main.player[projectile.owner];
 			player.zephyrfish = false; // Relic from aiType
-			return true;
-		}
-		
-		public override void AI() {
-			Player player = Main.player[projectile.owner];
-			SimpleModPlayer modPlayer = player.GetModPlayer<SimpleModPlayer>();
 
 			#region Active check
 			// This is the "active check", makes sure the minion is alive while the player is alive, and despawns if not
+			SimpleModPlayer modPlayer = player.GetModPlayer<SimpleModPlayer>();
+
 			if (player.dead || !player.active)
 			{
 				player.ClearBuff(ModContent.BuffType<Buffs.QuailPetBuff>());
@@ -46,43 +38,13 @@ namespace MigratePets.Projectiles.Pets
 				projectile.timeLeft = 2;
 			}
 			#endregion
-
-			#region Animation and visuals
-			// So it will lean slightly towards the direction it's moving
-			projectile.rotation = projectile.velocity.X * 0.08f;
-
-			// This is a simple "loop through all frames from top to bottom" animation
-			int frameSpeed = 8;
-			projectile.frameCounter++;
-			if (projectile.frameCounter >= frameSpeed)
-			{
-				projectile.frameCounter = 0;
-				projectile.frame++;
-				if (projectile.frame >= Main.projFrames[projectile.type])
-				{
-					projectile.frame = 0;
-				}
-			}
-
-			// Some visuals here
-			Lighting.AddLight(projectile.Center, Color.White.ToVector3() * 0.78f);
-			#endregion
+			return true;
 		}
 
 		public virtual string Texture => (base.GetType().Namespace + "." + this.Name).Replace('.', '/');
 		public virtual string Texture2 => (base.GetType().Namespace + "." + this.Name+"Walk").Replace('.', '/');
 		public virtual string Texture3 => (base.GetType().Namespace + "." + this.Name+"Fly").Replace('.', '/');
 		public virtual string Texture4 => (base.GetType().Namespace + "." + this.Name+"Fall").Replace('.', '/');
-
-		public override bool? CanCutTiles()
-		{
-			return false;
-		}
-
-		public override bool MinionContactDamage()
-		{
-			return true;
-		}
 
 		// Some advanced drawing because the texture image isn't centered or symetrical.
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
