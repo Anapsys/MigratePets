@@ -14,7 +14,7 @@ namespace MigratePets.Projectiles.Pets
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.BabyDino);
-			aiType = 0;//ProjectileID.BabyDino;
+			aiType = 0;//ProjectileID.BabyDino; //26;
 			projectile.timeLeft = 2;
 		}
 		public override bool PreAI()
