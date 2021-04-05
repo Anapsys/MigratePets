@@ -1,5 +1,6 @@
-using MigratePets;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using MigratePets;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,19 +16,18 @@ namespace MigratePets.Projectiles.Pets
 			//DisplayName.SetDefault("Paper Airplane"); // Automatic from .lang files
 			Main.projFrames[projectile.type] = 4;
 			Main.projPet[projectile.type] = true;
+			
+
 		}
 
 		public override void SetDefaults() {
-			projectile.CloneDefaults(ProjectileID.ZephyrFish);
-			aiType = ProjectileID.ZephyrFish;
+			projectile.CloneDefaults(ProjectileID.BabyDino);
+			aiType = 0;// ProjectileID.BabyDino;
+			projectile.timeLeft = 2;
+			
 		}
 
-		public override bool PreAI() {
-			Player player = Main.player[projectile.owner];
-			player.zephyrfish = false; // Relic from aiType
-			return true;
-		}
-
+		
 		public override void AI() {
 			Player player = Main.player[projectile.owner];
 
@@ -43,7 +43,9 @@ namespace MigratePets.Projectiles.Pets
 			}
 			#endregion
 
+			
 			#region General behavior
+			/*
 			Vector2 idlePosition = player.Center;
 			idlePosition.Y -= 48f; // Go up 48 coordinates (three tiles from the center of the player)
 
@@ -184,14 +186,15 @@ namespace MigratePets.Projectiles.Pets
 					projectile.velocity.Y = -0.05f;
 				}
 			}
+			*/
 			#endregion
 
 			#region Animation and visuals
 			// So it will lean slightly towards the direction it's moving
-			projectile.rotation = projectile.velocity.X * 0.05f;
+			projectile.rotation = projectile.velocity.X * 0.08f;
 
 			// This is a simple "loop through all frames from top to bottom" animation
-			int frameSpeed = 5;
+			int frameSpeed = 4;
 			projectile.frameCounter++;
 			if (projectile.frameCounter >= frameSpeed)
 			{
@@ -208,6 +211,10 @@ namespace MigratePets.Projectiles.Pets
 			#endregion
 		}
 
+		public virtual string Texture => (base.GetType().Namespace + "." + this.Name).Replace('.', '/');
+		public virtual string Texture2 => (base.GetType().Namespace + "." + this.Name+"Walk").Replace('.', '/');
+		public virtual string Texture3 => (base.GetType().Namespace + "." + this.Name+"Fly").Replace('.', '/');
+
 		public override bool? CanCutTiles()
 		{
 			return false;
@@ -216,6 +223,42 @@ namespace MigratePets.Projectiles.Pets
 		public override bool MinionContactDamage()
 		{
 			return true;
+		}
+
+		// Some advanced drawing because the texture image isn't centered or symetrical.
+		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+		{
+			SpriteEffects spriteEffects = SpriteEffects.None;
+			if (projectile.spriteDirection == -1)
+			{
+				spriteEffects = SpriteEffects.FlipHorizontally;
+			}
+			Texture2D anim1 = ModContent.GetTexture(this.Texture2); //walk
+			Texture2D anim2 = ModContent.GetTexture(this.Texture3); //fly
+
+			Texture2D texture = Main.projectileTexture[projectile.type];
+			if ( System.Math.Abs(projectile.velocity.X) > 0) texture = anim1;
+			if ( System.Math.Abs(projectile.velocity.Y) >= 0.04f ) texture = anim2;
+
+
+			int frameHeight = Main.projectileTexture[projectile.type].Height / Main.projFrames[projectile.type];
+			int startY = frameHeight * projectile.frame;
+			Rectangle sourceRectangle = new Rectangle(0, startY, texture.Width, frameHeight);
+			Vector2 origin = sourceRectangle.Size() / 2f;
+			origin.X = (float)(projectile.spriteDirection == 1 ? sourceRectangle.Width - 20 : 20);
+
+			Color drawColor = projectile.GetAlpha(lightColor);
+			Main.spriteBatch.Draw(texture,
+				projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY),
+				sourceRectangle, 
+				drawColor, 
+				projectile.rotation,
+				origin, 
+				projectile.scale, 
+				spriteEffects, 
+				0f);
+
+			return false;
 		}
 	}
 }

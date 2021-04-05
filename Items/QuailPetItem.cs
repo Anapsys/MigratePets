@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace MigratePets.Items
 {
-	public class LoPetItem : ModItem
+	public class QuailPetItem : ModItem
 	{
 		public override void SetStaticDefaults() {
 			// DisplayName and Tooltip are automatically set from the .lang files, but below is how it is done normally.
@@ -17,8 +17,8 @@ namespace MigratePets.Items
 			item.CloneDefaults(ItemID.AmberMosquito);
 			item.damage = 0;
 			item.useStyle = 1;
-			item.shoot = ModContent.ProjectileType<Projectiles.Pets.LoPet>();
-			item.buffType = ModContent.BuffType<Buffs.LoPetBuff>();
+			item.shoot = ModContent.ProjectileType<Projectiles.Pets.QuailPet>();
+			item.buffType = ModContent.BuffType<Buffs.QuailPetBuff>();
 		}
 
 		public override void AddRecipes() {
