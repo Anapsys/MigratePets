@@ -9,6 +9,8 @@ if Main.player[this.owner].velocity.Y == 0f
 	{
 		base.velocity.Y = -6f;
 	}
+	
+Collision.StepUp(ref base.position, ref base.velocity, base.width, base.height, ref this.stepSpeed, ref this.gfxOffY);
 
 //player ownership
 if (Main.myPlayer == this.owner)
