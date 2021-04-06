@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 namespace MigratePets.Items
 {
@@ -12,8 +13,9 @@ namespace MigratePets.Items
 			item.CloneDefaults(ItemID.AmberMosquito);
 			item.damage = 0;
 			item.useStyle = ItemUseStyleID.SwingThrow;
-			item.shoot = ModContent.ProjectileType<Projectiles.Pets.LoPet>();
-			item.buffType = ModContent.BuffType<Buffs.LoPetBuff>();
+			//item.UseSound = new LegacySoundStyle(SoundID.Bird, 1 );
+			item.shoot = ModContent.ProjectileType<Projectiles.Pets.FenixPet>();
+			item.buffType = ModContent.BuffType<Buffs.FenixPetBuff>();
 		}
 
 		public override void AddRecipes()

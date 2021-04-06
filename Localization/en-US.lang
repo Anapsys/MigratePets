@@ -36,19 +36,25 @@ ItemName.LoPetItem=Essence of Bird
 ItemTooltip.LoPetItem=Summons {$Mods.MigratePets.Common.Lo} to bumble around uselessly on his pogo stick!
 ProjectileName.LoPet={$Mods.MigratePets.Common.Lo}
 BuffName.LoPetBuff={$Mods.MigratePets.Common.Lo}
-BuffDescription.LoPetBuff="quack"
+BuffDescription.LoPetBuff=quack
 
 ItemName.QuailPetItem=Quail thing i guess
 ItemTooltip.QuailPetItem=Summons {$Mods.MigratePets.Common.Quail} to bob around.
 ProjectileName.QuailPet={$Mods.MigratePets.Common.Quail}
 BuffName.QuailPetBuff={$Mods.MigratePets.Common.Quail}
-BuffDescription.QuailPetBuff="wat hims doin"
+BuffDescription.QuailPetBuff=wat hims doin
 
 ItemName.FenixPetItem=Jade Necklae
 ItemTooltip.FenixPetItem=Summons {$Mods.MigratePets.Common.Fenix} with attitude.
 ProjectileName.FenixPet={$Mods.MigratePets.Common.Fenix}
 BuffName.FenixPetBuff={$Mods.MigratePets.Common.Fenix}
-BuffDescription.FenixPetBuff="sassy"
+BuffDescription.FenixPetBuff=sassy
+
+ItemName.PalmerPetItem=Cardboard Tube
+ItemTooltip.PalmerPetItem=A bird is guaranteed to get their head stuck in here.
+ProjectileName.PalmerPet={$Mods.MigratePets.Common.Palmer}
+BuffName.PalmerPetBuff={$Mods.MigratePets.Common.Palmer}
+BuffDescription.PalmerPetBuff=pretends to want to be left alone
 
 Common.LocalizedLabel=This Label is from the .lang files: {$Mods.MigratePets.Common.Lo}
 Common.LocalizedTooltip=This tooltip is from the .lang files.
