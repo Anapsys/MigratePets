@@ -13,7 +13,7 @@ namespace MigratePets.Projectiles.Pets
 		{
 			Main.projFrames[projectile.type] = 11; //this MUST MATCH the hardcoded number of frames in whatever AI you're copying. >_>
 			Main.projPet[projectile.type] = true;
-			drawOriginOffsetY -= 4;
+			drawOriginOffsetY -= 5;
 		}
 		public override bool PreAI()
 		{

@@ -24,6 +24,7 @@ namespace MigratePets
 		public bool quailPet;
 		public bool LoPet;
 		public bool FenixPet;
+		public bool PalmerPet;
 
 		// ResetEffects is used to reset effects back to their default value. Terraria resets all effects every frame back to defaults so we will follow this design. (You might think to set a variable when an item is equipped and unassign the value when the item in unequipped, but Terraria is not designed that way.)
 		public override void ResetEffects() {

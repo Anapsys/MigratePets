@@ -7,13 +7,13 @@ using Terraria.ModLoader;
 
 namespace MigratePets.Projectiles.Pets
 {
-	public class FenixPet : AbstractPet
+	public class PalmerPet : AbstractPet
 	{
 		public override void SetStaticDefaults()
 		{
 			Main.projFrames[projectile.type] = 11; //this MUST MATCH the hardcoded number of frames in whatever AI you're copying. >_>
 			Main.projPet[projectile.type] = true;
-			drawOriginOffsetY -= 31;
+			drawOriginOffsetY -= 40;
 		}
 		public override void SetDefaults()
 		{
@@ -33,10 +33,10 @@ namespace MigratePets.Projectiles.Pets
 
 			if (player.dead || !player.active)
 			{
-				player.ClearBuff(ModContent.BuffType<Buffs.FenixPetBuff>());
-				modPlayer.FenixPet = false;
+				player.ClearBuff(ModContent.BuffType<Buffs.PalmerPetBuff>());
+				modPlayer.PalmerPet = false;
 			}
-			if (player.HasBuff(ModContent.BuffType<Buffs.FenixPetBuff>()))
+			if (player.HasBuff(ModContent.BuffType<Buffs.PalmerPetBuff>()))
 			{
 				projectile.timeLeft = 2;
 			}
