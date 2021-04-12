@@ -1,7 +1,7 @@
 displayName = Anapse's Pets
 author = Anapse Entertainment
 version = 1.0
-homepage = https://anapse.net/
+homepage = https://www.anapse.net/
 hideCode = false
 hideResources = false
 includeSource = true
