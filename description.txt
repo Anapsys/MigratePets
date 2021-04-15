@@ -1,5 +1,9 @@
 A tiny mod that just adds my birds from other projects as pets.
-
 Craft the new items with souls and spare vanity items.
 
+** 300+ downloads! As a mod made for my friends, I wasn't really expecting much interest. Thank you! **
+
 Interest/Support/Feedback: https://discord.gg/p5Ne8Jr or anapse-entertainment@anapse.net
+
+Changelog:
+- fixed* part of a texture loading issue that was causing lines to appear above the sprite.

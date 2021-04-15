@@ -24,6 +24,7 @@ namespace MigratePets.Projectiles.Pets
 			//projectile.tileCollide = true;
 			aiType = ProjectileID.BlackCat; //26;
 			projectile.timeLeft = 2;
+			projectile.scale = 2;
 		}
 		public override bool PreAI() //amazingly, this whole thing must be overridden in each pet.
 		{

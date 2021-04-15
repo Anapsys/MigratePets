@@ -13,7 +13,17 @@ namespace MigratePets.Projectiles.Pets
 		{
 			Main.projFrames[projectile.type] = 11; //this MUST MATCH the hardcoded number of frames in whatever AI you're copying. >_>
 			Main.projPet[projectile.type] = true;
-			drawOriginOffsetY -= 5;
+		}
+		public override void SetDefaults()
+		{
+			projectile.CloneDefaults(ProjectileID.BlackCat);
+			//projectile.tileCollide = true;
+			aiType = ProjectileID.BlackCat;
+			projectile.timeLeft = 4;
+			projectile.scale = 2;
+			drawOriginOffsetY -= 2;
+			projectile.width = 8;
+			projectile.height = 10;
 		}
 		public override bool PreAI()
 		{
